@@ -41,17 +41,38 @@
   }
   
   .content h1 {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     margin-bottom: 1rem;
-    line-height: 1.4;
+    font-weight: 700;
   }
   
-  .content .subtext {
-    font-size: 1.2rem;
+  .tagline {
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin-bottom: 1.2rem;
+    line-height: 1.5;
+  }
+  
+  .subtext {
+    font-size: 1.1rem;
     max-width: 600px;
-    margin: 0 auto;
+    margin: 0 auto 2rem;
     line-height: 1.6;
     opacity: 0.9;
+  }
+  
+  .contact-box {
+    margin-top: 2rem;
+  }
+  
+  .contact-box h2 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .contact-box a {
+    color: white;
+    text-decoration: underline;
   }
   
   footer {
