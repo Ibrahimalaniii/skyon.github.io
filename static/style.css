@@ -1,126 +1,202 @@
+/* Global reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body, html {
-    height: 100%;
-    font-family: 'Inter', sans-serif;
-  }
-  
-  .hero {
-    background: radial-gradient(circle at top left, #2e6af3, #034bf1, #001f8b);
-    background-size: cover;
-    background-position: center;
-    color: white;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 40px 20px;
-    text-align: center;
-  }
-  
-  .logo {
-    font-weight: 700;
-    font-size: 1.5rem;
-    letter-spacing: 2px;
-    text-align: left;
-    padding-left: 20px;
-  }
-  
-  .content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 40px 20px;
-  }
-  
-  .tagline {
-    font-size: 2.2rem;
-    font-weight: 600;
-    line-height: 1.5;
-    margin-bottom: 1rem;
-  }
-  
-  .subtext {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
-  }
-  
-  .coming-soon {
-    font-size: 1.8rem;
-    font-weight: 500;
-    margin: 3rem 0 1rem;
-  }
-  
-  .contact-box {
-    margin-top: 3rem;
-  }
-  
-  .contact-box h3 {
-    font-weight: 500;
-    margin-bottom: 1rem;
-  }
-  
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    max-width: 400px;
-    margin: 0 auto;
-  }
-  
-  .contact-form input {
-    width: 100%;
-    padding: 12px;
-    border-radius: 6px;
-    border: none;
-    font-size: 1rem;
-  }
-  
-  .contact-form button {
-    width: 100%;
-    padding: 12px;
-    background-color: white;
-    color: black;
-    font-weight: bold;
-    border: none;
-    border-radius: 6px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background 0.2s ease;
-  }
-  
-  .contact-form button:hover {
-    background-color: #eaeaea;
-  }
-  
-  footer {
-    margin-top: 40px;
-    text-align: center;
-    font-size: 0.9rem;
-    color: #ffffffcc;
-  }
-  
-  .socials {
-    margin-bottom: 10px;
-  }
-  
-  .socials a {
-    color: white;
-    text-decoration: none;
-    margin: 0 10px;
-    font-size: 1.2rem;
-    transition: opacity 0.2s ease;
-  }
-  
-  .socials a:hover {
-    opacity: 0.7;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Kropp med multi-lags gradient for en mer “swirly” effekt */
+body {
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  color: #fff;
+  line-height: 1.6;
+
+  /* Flere radial-gradients + linear-gradient i bunn */
+  background: 
+    /* Lysere, svakt hvitt slør oppe til venstre */
+    radial-gradient(
+      circle at 25% 30%, 
+      rgba(255, 255, 255, 0.05) 0%, 
+      transparent 45%
+    ),
+    /* Et annet lysere slør nede til høyre */
+    radial-gradient(
+      circle at 75% 70%, 
+      rgba(255, 255, 255, 0.08) 0%, 
+      transparent 50%
+    ),
+    /* Selve hovedbakgrunnen i flere blå toner */
+    linear-gradient(
+      180deg, 
+      #034bf1 0%, 
+      #2e6af3 50%, 
+      #001f8b 100%
+    );
+
+  /* Kan eventuelt teste ut: background-blend-mode: screen; 
+     for ekstra “lysere” effekt på radiale flekker 
+  */
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed; /* Fikser bakgrunn ved scrolling (valgfritt) */
+}
+
+/* Sticky Header */
+.navbar-section {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+}
+.navbar {
+  width: 100%;
+  padding: 0 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar-logo h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+}
+.navbar-links a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 400;
+}
+
+/* Main-innhold: starter under headeren */
+main {
+  margin-top: 80px;
+}
+
+/* Hero-seksjon (fyller skjermen minus headeren) */
+.hero {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+.hero h2 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.hero p {
+  font-size: 18px;
+  max-width: 500px;
+  line-height: 1.4;
+}
+
+/* Info-seksjon med horisontale bokser */
+.info-section {
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.info-box {
+  background: linear-gradient(
+    180deg, 
+    rgba(255, 255, 255, 0.05), 
+    rgba(255, 255, 255, 0.02)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 40px;
+  max-width: 300px;
+  width: 100%;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.info-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+.info-box h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  white-space: nowrap;
+}
+.info-box p {
+  font-size: 18px;
+}
+
+/* Kontakt-seksjon */
+.contact-section {
+  padding: 60px 20px;
+  background-color: rgba(0, 0, 0, 0.15);
+  text-align: center;
+  margin: 0;
+}
+.contact-section .container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.contact-section h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+.contact-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.contact-section input,
+.contact-section textarea {
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+}
+.contact-section button {
+  padding: 10px;
+  background-color: #fff;
+  color: #001f8b;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.contact-section button:hover {
+  background-color: #e0e0e0;
+}
+#bekreftelse {
+  margin-top: 15px;
+  font-size: 16px;
+}
+
+/* Footer: separat seksjon uten stort mellomrom */
+footer {
+  margin: 0;
+  padding: 20px;
+  background-color: rgba(0,0,0,0.15);
+  text-align: center;
+}
+
+/* Fade-in-effekt (valgfritt, aktiveres via JS i script.js om ønskelig) */
+.fade-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fade-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
