@@ -6,6 +6,7 @@
   <title>SkyonAI – Fremtidens løsninger</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Script lastes med defer slik at DOM-en er ferdig før kjøring -->
   <script src="{{ url_for('static', filename='script.js') }}" defer></script>
 </head>
 <body>
@@ -24,33 +25,30 @@
   </header>
 
   <main>
-    <!-- Hero-seksjon -->
+    <!-- Hero-seksjon: Fyller skjermen under headeren -->
     <section class="hero">
       <h2>Glem kø. Glem venting.<br>Møt SkyonAI</h2>
       <p>Din AI-assistent for bygg- og anleggsbransjen – tilgjengelig 24/7.</p>
     </section>
 
-    <!-- Info-seksjon med horisontale bokser -->
+    <!-- Info-seksjon med horisontale bokser (evt. fade-effekt) -->
     <section id="info-section" class="info-section fade-section">
       <div class="info-box">
         <h2>Hva vi gjør</h2>
         <p>
-          Vi utvikler moderne chatbot-løsninger for bygg- og anleggsbransjen, 
-          automatiserer kundeservice og øker produktiviteten.
+          Vi utvikler moderne chatbot-løsninger for bygg- og anleggsbransjen, automatiserer kundeservice og øker produktiviteten.
         </p>
       </div>
       <div class="info-box">
         <h2>Hvorfor velge oss?</h2>
         <p>
-          Vår løsning kombinerer teknologisk innovasjon med bransjeerfaring 
-          for å gi enestående brukeropplevelser.
+          Vår løsning kombinerer teknologisk innovasjon med bransjeerfaring for å gi enestående brukeropplevelser.
         </p>
       </div>
       <div class="info-box">
         <h2>Hvordan det funker</h2>
         <p>
-          Plattformen vår integreres sømløst med dine systemer og håndterer 
-          kundehenvendelser automatisk med avansert AI.
+          Plattformen vår integreres sømløst med dine systemer og håndterer kundehenvendelser automatisk med avansert AI.
         </p>
       </div>
     </section>
@@ -70,6 +68,7 @@
     </section>
   </main>
 
+  <!-- Footer -->
   <footer>
     <p>© 2025 SkyonAI. Alle rettigheter forbeholdt.</p>
   </footer>
