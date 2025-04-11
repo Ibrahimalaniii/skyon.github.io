@@ -5,42 +5,19 @@
   box-sizing: border-box;
 }
 
-/* Kropp med multi-lags gradient for en mer “swirly” effekt */
 body {
   font-family: 'Inter', sans-serif;
-  min-height: 100vh;
-  color: #fff;
-  line-height: 1.6;
-
-  /* Flere radial-gradients + linear-gradient i bunn */
+  /* Multi-lags gradient for en mer dynamisk bakgrunn */
   background: 
-    /* Lysere, svakt hvitt slør oppe til venstre */
-    radial-gradient(
-      circle at 25% 30%, 
-      rgba(255, 255, 255, 0.05) 0%, 
-      transparent 45%
-    ),
-    /* Et annet lysere slør nede til høyre */
-    radial-gradient(
-      circle at 75% 70%, 
-      rgba(255, 255, 255, 0.08) 0%, 
-      transparent 50%
-    ),
-    /* Selve hovedbakgrunnen i flere blå toner */
-    linear-gradient(
-      180deg, 
-      #034bf1 0%, 
-      #2e6af3 50%, 
-      #001f8b 100%
-    );
-
-  /* Kan eventuelt teste ut: background-blend-mode: screen; 
-     for ekstra “lysere” effekt på radiale flekker 
-  */
-
+    radial-gradient(circle at 25% 30%, rgba(255, 255, 255, 0.05), transparent 45%),
+    radial-gradient(circle at 75% 70%, rgba(255, 255, 255, 0.08), transparent 50%),
+    linear-gradient(180deg, #034bf1 0%, #2e6af3 50%, #001f8b 100%);
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed; /* Fikser bakgrunn ved scrolling (valgfritt) */
+  background-attachment: fixed;
+  color: #fff;
+  min-height: 100vh;
+  line-height: 1.6;
 }
 
 /* Sticky Header */
@@ -56,6 +33,7 @@ body {
   display: flex;
   align-items: center;
 }
+
 .navbar {
   width: 100%;
   padding: 0 50px;
@@ -63,24 +41,37 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+
 .navbar-logo h1 {
   font-size: 24px;
   font-weight: 700;
   color: #fff;
 }
+
+.navbar-logo a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .navbar-links a {
   margin-left: 20px;
   text-decoration: none;
   color: #fff;
   font-weight: 400;
+  transition: color 0.3s ease;
 }
 
-/* Main-innhold: starter under headeren */
+/* Når man holder over navigasjonslenker endres fargen */
+.navbar-links a:hover {
+  color: #cceeff;
+}
+
+/* Main-innhold starter under headeren */
 main {
   margin-top: 80px;
 }
 
-/* Hero-seksjon (fyller skjermen minus headeren) */
+/* Hero-seksjon */
 .hero {
   min-height: calc(100vh - 80px);
   display: flex;
@@ -111,23 +102,23 @@ main {
   background-color: rgba(0, 0, 0, 0.1);
 }
 .info-box {
-  background: linear-gradient(
-    180deg, 
-    rgba(255, 255, 255, 0.05), 
-    rgba(255, 255, 255, 0.02)
-  );
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.2);
   border-radius: 8px;
   padding: 40px;
   max-width: 300px;
   width: 100%;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
+
+/* Ved hover kan info-boxen både heves og endre bakgrunnsfarge litt */
 .info-box:hover {
   transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0.04));
 }
+
 .info-box h2 {
   font-size: 24px;
   margin-bottom: 20px;
@@ -137,7 +128,7 @@ main {
   font-size: 18px;
 }
 
-/* Kontakt-seksjon */
+/* Kontakt oss-seksjon */
 .contact-section {
   padding: 60px 20px;
   background-color: rgba(0, 0, 0, 0.15);
@@ -182,15 +173,15 @@ main {
   font-size: 16px;
 }
 
-/* Footer: separat seksjon uten stort mellomrom */
+/* Footer */
 footer {
   margin: 0;
   padding: 20px;
-  background-color: rgba(0,0,0,0.15);
+  background-color: rgba(0, 0, 0, 0.15);
   text-align: center;
 }
 
-/* Fade-in-effekt (valgfritt, aktiveres via JS i script.js om ønskelig) */
+/* Fade-in-effekt for seksjoner (valgfritt, aktiveres med script.js) */
 .fade-section {
   opacity: 0;
   transform: translateY(20px);
