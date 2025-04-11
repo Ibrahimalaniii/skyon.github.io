@@ -6,7 +6,7 @@
   <title>SkyonAI – Kommer snart</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
 </head>
 <body>
   <div class="hero">
@@ -22,11 +22,12 @@
 
       <div class="contact-box">
         <h3>Fyll ut for mer informasjon</h3>
-        <form class="contact-form" action="https://formspree.io/f/xpwpkdqb" method="POST">
+        <form id="kontaktSkjema">
           <input type="text" name="navn" placeholder="Navn" required />
           <input type="email" name="epost" placeholder="E-post" required />
           <button type="submit">Send</button>
         </form>
+        <p id="bekreftelse" style="margin-top: 10px;"></p>
       </div>
     </main>
 
