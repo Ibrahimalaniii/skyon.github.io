@@ -1,41 +1,43 @@
-/* Global reset */
+/* ––––––––––––––––––––––––––––––––––––––––––––––––––––
+   FONT-IMPORT OG GLOBAL RESET
+––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Inter', sans-serif;
-  min-height: 100vh;
-  color: #fff;
-  line-height: 1.6;
-
-  /* Kombinert bakgrunn: radial highlights + animert gradient */
-  background: 
-    radial-gradient(circle at 25% 30%, rgba(255, 255, 255, 0.05) 0%, transparent 45%),
-    radial-gradient(circle at 75% 70%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
-    linear-gradient(-45deg, #035EFC, #047BFE, #0040ff, #0b63f2);
-
-  background-size: 400% 400%;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  animation: gradientLoop 15s ease infinite;
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Montserrat', sans-serif;
+  min-height: 100vh;
+  background-color: #fff;
+  color: #333;
+  line-height: 1.6;
+}
 
-/* Sticky Header */
+/* ––––––––––––––––––––––––––––––––––––––––––––––––––––
+   HEADER – MIDNATTS-TEMA (#131B3C)
+––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 .navbar-section {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 80px;
-  z-index: 1000;
-  background-color: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
+  background-color: #131B3C;
   display: flex;
   align-items: center;
+  z-index: 1000;
 }
 
 .navbar {
@@ -44,12 +46,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.navbar-logo h1 {
-  font-size: 24px;
-  font-weight: 700;
-  color: #fff;
 }
 
 .navbar-logo a {
@@ -65,17 +61,60 @@ body {
   transition: color 0.3s ease;
 }
 
-/* Når man holder over navigasjonslenker endres fargen */
 .navbar-links a:hover {
   color: #cceeff;
 }
 
-/* Main-innhold starter under headeren */
-main {
-  margin-top: 80px;
+/* ––––––––––––––––––––––––––––––––––––––––––––––––––––
+   LOGO-STILER
+––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
+.logo-wrapper {
+  display: flex;
+  align-items: center;
 }
 
-/* Hero-seksjon */
+.logo-text {
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Tekst før skyikonet */
+.sky-part {
+  margin-right: 10px;
+}
+
+/* Skyikonet: bruker et bilde fra /static/images/cloud.png */
+.cloud {
+  display: inline-flex;
+  align-items: center;
+}
+
+.cloud-img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  margin-right: 10px;
+}
+
+/* Tekst etter skyikonet */
+.on-part {
+  margin-left: 0;
+}
+
+/* ––––––––––––––––––––––––––––––––––––––––––––––––––––
+   MAIN
+––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
+main {
+  flex: 1;
+  margin-top: 80px; /* For å kompensere for den faste headeren */
+}
+
+/* ––––––––––––––––––––––––––––––––––––––––––––––––––––
+   HERO-SEKSJON (eksempel)
+––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 .hero {
   min-height: calc(100vh - 80px);
   display: flex;
@@ -84,60 +123,63 @@ main {
   align-items: center;
   text-align: center;
   padding: 20px;
+  background-color: #fff;
 }
 .hero h2 {
   font-size: 36px;
   font-weight: 700;
   margin-bottom: 20px;
+  color: #131B3C;
 }
 .hero p {
   font-size: 18px;
   max-width: 500px;
   line-height: 1.4;
+  color: #333;
 }
 
-/* Info-seksjon med horisontale bokser */
+/* ––––––––––––––––––––––––––––––––––––––––––––––––––––
+   INFO-SEKSJON (Index-eksempel)
+––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 .info-section {
   padding: 60px 20px;
   display: flex;
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: #f7f7f7;
 }
 .info-box {
-  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-  border: 1px solid rgba(255,255,255,0.2);
+  background-color: #fff;
+  border: 1px solid #ddd;
   border-radius: 8px;
   padding: 40px;
   max-width: 300px;
   width: 100%;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
-/* Ved hover kan info-boxen både heves og endre bakgrunnsfarge litt */
 .info-box:hover {
   transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  background: linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0.04));
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
-
 .info-box h2 {
   font-size: 24px;
   margin-bottom: 20px;
-  white-space: nowrap;
+  color: #131B3C;
 }
 .info-box p {
   font-size: 18px;
+  color: #555;
 }
 
-/* Kontakt oss-seksjon */
+/* ––––––––––––––––––––––––––––––––––––––––––––––––––––
+   KONTAKT-SEKSJON (eksempel)
+––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 .contact-section {
   padding: 60px 20px;
-  background-color: rgba(0, 0, 0, 0.15);
+  background-color: #fff;
   text-align: center;
-  margin: 0;
 }
 .contact-section .container {
   max-width: 600px;
@@ -146,6 +188,7 @@ main {
 .contact-section h2 {
   font-size: 32px;
   margin-bottom: 20px;
+  color: #131B3C;
 }
 .contact-section form {
   display: flex;
@@ -156,13 +199,13 @@ main {
 .contact-section textarea {
   padding: 10px;
   font-size: 16px;
-  border: none;
+  border: 1px solid #ccc;
   border-radius: 4px;
 }
 .contact-section button {
   padding: 10px;
-  background-color: #fff;
-  color: #001f8b;
+  background-color: #131B3C;
+  color: #fff;
   border: none;
   border-radius: 4px;
   font-size: 16px;
@@ -170,22 +213,26 @@ main {
   transition: background-color 0.3s ease;
 }
 .contact-section button:hover {
-  background-color: #e0e0e0;
+  background-color: #0e1630;
 }
 #bekreftelse {
   margin-top: 15px;
   font-size: 16px;
 }
 
-/* Footer */
+/* ––––––––––––––––––––––––––––––––––––––––––––––––––––
+   FOOTER
+––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 footer {
-  margin: 0;
   padding: 20px;
-  background-color: rgba(0, 0, 0, 0.15);
+  background-color: #131B3C;
   text-align: center;
+  color: #fff;
 }
 
-/* Fade-in-effekt for seksjoner (valgfritt, aktiveres med script.js) */
+/* ––––––––––––––––––––––––––––––––––––––––––––––––––––
+   FADE-IN EFFEKT
+––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 .fade-section {
   opacity: 0;
   transform: translateY(20px);
@@ -196,17 +243,209 @@ footer {
   transform: translateY(0);
 }
 
-@keyframes gradientLoop {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+/* ––––––––––––––––––––––––––––––––––––––––––––––––––––
+   PRISSIDE (eksempel)
+––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
+.prices-section {
+  text-align: center;
+  background-color: #f7f7f7;
+  padding: 60px 20px;
+}
+.prices-section h2 {
+  margin-bottom: 40px;
+  font-size: 36px;
+  color: #131B3C;
+}
+.price-boxes {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+.price-box {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 30px;
+  width: 280px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.price-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+.price-box h3 {
+  margin-bottom: 15px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #131B3C;
+}
+.price-box .price {
+  margin-bottom: 15px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #131B3C;
+}
+.price-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.price-box li {
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: #555;
 }
 
+/* ––––––––––––––––––––––––––––––––––––––––––––––––––––
+   OM OSS – TEAM SLIDER (eksempel)
+––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 
+/* Om oss-informasjon */
+.about-section {
+  padding: 60px 20px;
+  text-align: center;
+  background-color: #fff;
+}
+.about-section h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #131B3C;
+}
+.about-section h3 {
+  font-size: 28px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  color: #131B3C;
+}
+.about-section p {
+  font-size: 18px;
+  margin-bottom: 15px;
+  line-height: 1.5;
+  color: #555;
+}
 
+/* Team-seksjonen med slider */
+.team-section {
+  padding: 60px 20px;
+  text-align: center;
+  background-color: #f7f7f7;
+}
+.team-section h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+  color: #131B3C;
+}
+
+/* Team-slider container */
+.team-slider {
+  position: relative;
+  width: 600px;     /* Sliderens bredde */
+  height: 400px;    /* Sliderens høyde */
+  margin: 40px auto;
+  overflow: visible;
+}
+
+/* Team-medlemmer: bredde 200px, høyde 320px */
+.team-member {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 320px;
+  transform: translate(-50%, -50%);
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  background-color: #131B3C;
+  color: #fff;
+}
+
+/* Midt-boksen: vises sentralt, full opasitet */
+.team-member.center {
+  z-index: 3;
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Venstre-boksen: flyttes 210px til venstre, med litt mindre skala og lavere opasitet */
+.team-member.left {
+  z-index: 2;
+  opacity: 0.5;
+  transform: translate(-50%, -50%) translateX(-210px) scale(0.9);
+}
+
+/* Høyre-boksen: flyttes 210px til høyre, med tilsvarende justering */
+.team-member.right {
+  z-index: 2;
+  opacity: 0.5;
+  transform: translate(-50%, -50%) translateX(210px) scale(0.9);
+}
+
+/* Skjul øvrige team-medlemmer */
+.team-member.hidden {
+  opacity: 0;
+  z-index: 1;
+}
+
+/* Navigasjonsknapper for slider – plassert nær midten */
+.slider-nav {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+}
+.slider-nav button {
+  pointer-events: all;
+  background: rgba(0,0,0,0.4);
+  border: none;
+  color: #fff;
+  padding: 6px 10px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 4px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.slider-nav .prev {
+  left: 25%;
+}
+.slider-nav .next {
+  right: 25%;
+}
+
+/* ––––––––––––––––––––––––––––––––––––––––––––––––––––
+   RESPONSIVE TILPASNING
+––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
+@media (max-width: 768px) {
+  .hero h2, .about-section h2, .team-section h2, .prices-section h2 {
+    font-size: 28px;
+  }
+  .about-section h3 {
+    font-size: 24px;
+  }
+  .about-section p,
+  .team-member h3,
+  .team-member p,
+  .price-box h3,
+  .price-box li {
+    font-size: 16px;
+  }
+  .team-slider {
+    width: 320px; /* Justerer sliderbredde for mobil */
+    height: 350px;
+  }
+}

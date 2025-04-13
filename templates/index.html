@@ -1,79 +1,50 @@
-<!DOCTYPE html>
-<html lang="no">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SkyonAI – Fremtidens løsninger</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-  <script src="{{ url_for('static', filename='script.js') }}" defer></script>
-</head>
-<body>
-  <!-- Sticky Header -->
-  <header class="navbar-section">
-    <nav class="navbar">
-      <div class="navbar-logo">
-        <!-- Logoen er nå en lenke til hovedsiden -->
-        <a href="/"><h1>SKYONAI</h1></a>
-      </div>
-      <div class="navbar-links">
-        <a href="#omoss">Om oss</a>
-        <a href="#priser">Priser</a>
-        <a href="#kontakt">Kontakt</a>
-      </div>
-    </nav>
-  </header>
+{% extends "base.html" %}
 
-  <main>
-    <!-- Hero-seksjon: Fyller skjermen under headeren -->
-    <section class="hero">
-      <h2>Glem kø. Glem venting.<br>Møt SkyonAI</h2>
-      <p>Din AI-assistent for bygg- og anleggsbransjen – tilgjengelig 24/7.</p>
-    </section>
+{% block title %}SkyonAI – Fremtidens løsninger{% endblock %}
 
-    <!-- Info-seksjon med horisontale bokser -->
-    <section id="info-section" class="info-section fade-section">
-      <div class="info-box">
-        <h2>Hva vi gjør</h2>
-        <p>
-          Vi utvikler moderne chatbot-løsninger for bygg- og anleggsbransjen, 
-          automatiserer kundeservice og øker produktiviteten.
-        </p>
-      </div>
-      <div class="info-box">
-        <h2>Hvorfor velge oss?</h2>
-        <p>
-          Vår løsning kombinerer teknologisk innovasjon med bransjeerfaring 
-          for å gi enestående brukeropplevelser.
-        </p>
-      </div>
-      <div class="info-box">
-        <h2>Hvordan det funker</h2>
-        <p>
-          Plattformen vår integreres sømløst med dine systemer og håndterer 
-          kundehenvendelser automatisk med avansert AI.
-        </p>
-      </div>
-    </section>
+{% block content %}
+<!-- Hero-seksjon -->
+<section class="hero">
+  <h2 class="fancy-text">Glem kø. Glem venting.<br>Møt SkyonAI</h2>
+  <p>Din AI-assistent for bygg- og anleggsbransjen – tilgjengelig 24/7.</p>
+</section>
 
-    <!-- Kontakt oss-seksjon -->
-    <section id="kontakt" class="contact-section fade-section">
-      <div class="container">
-        <h2>Kontakt oss</h2>
-        <form id="kontaktSkjema">
-          <input type="text" name="navn" placeholder="Navn" required>
-          <input type="email" name="epost" placeholder="E-post" required>
-          <textarea name="melding" placeholder="Din melding" rows="5" required></textarea>
-          <button type="submit">Send melding</button>
-        </form>
-        <p id="bekreftelse"></p>
-      </div>
-    </section>
-  </main>
+<!-- Informasjonsseksjon med horisontale bokser -->
+<section id="info-section" class="info-section fade-section">
+  <div class="info-box">
+    <h2>Hva vi gjør</h2>
+    <p>
+      Vi utvikler moderne chatbot-løsninger for bygg- og anleggsbransjen som automatiserer 
+      kundeservice og forbedrer arbeidsflyten.
+    </p>
+  </div>
+  <div class="info-box">
+    <h2>Hvorfor velge oss?</h2>
+    <p>
+      Vår teknologi kombinerer bransjespesifikk ekspertise med avansert AI, slik at du får 
+      effektive løsninger som øker produktiviteten.
+    </p>
+  </div>
+  <div class="info-box">
+    <h2>Hvordan det funker</h2>
+    <p>
+      Plattformen vår integreres sømløst med dine systemer og håndterer kundehenvendelser 
+      automatisk – raskt, presist og til enhver tid.
+    </p>
+  </div>
+</section>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 SkyonAI. Alle rettigheter forbeholdt.</p>
-  </footer>
-</body>
-</html>
+<!-- Kontakt oss-seksjon -->
+<section id="kontakt" class="contact-section fade-section">
+  <div class="container">
+    <h2>Kontakt oss</h2>
+    <form id="kontaktSkjema">
+      <input type="text" name="navn" placeholder="Navn" required>
+      <input type="email" name="epost" placeholder="E-post" required>
+      <textarea name="melding" placeholder="Din melding" rows="5" required></textarea>
+      <button type="submit">Send melding</button>
+    </form>
+    <p id="bekreftelse"></p>
+  </div>
+</section>
+{% endblock %}

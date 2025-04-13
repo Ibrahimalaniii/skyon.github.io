@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block title %}Om Oss – SkyonAI{% endblock %}
+
+{% block content %}
+<!-- Om oss-seksjonen med informasjon -->
+<section id="omoss" class="about-section fade-section">
+  <div class="container">
+    <h2>Om Oss</h2>
+    
+    <h3>Hvem er vi?</h3>
+    <p>
+      Vi er SkyonAI – et teknologiselskap med fokus på intelligente chatbot-løsninger for bygg- og anleggsbransjen. 
+      Vårt team kombinerer ekspertise innen kunstig intelligens med bransjekunnskap for å effektivisere kommunikasjonen og arbeidsflyten.
+    </p>
+    
+    <h3>Hva gjør vi?</h3>
+    <p>
+      Vi utvikler skreddersydde chatbots som automatiserer kundehenvendelser og integreres sømløst med dine systemer – noe som gir rask respons og bedre ressursutnyttelse.
+    </p>
+    
+    <h3>Hvordan hjelper vi bedrifter?</h3>
+    <p>
+      Våre løsninger gir bedrifter et konkurransefortrinn gjennom forbedret kommunikasjon og reduserte driftskostnader. Vi sikrer effektiv arbeidsflyt i en krevende bransje.
+    </p>
+    
+    <h3>Vår visjon</h3>
+    <p>
+      Vi tror på digital innovasjon og ønsker å revolusjonere bygg- og anleggsbransjen med banebrytende AI-teknologi. 
+      Vår visjon er å skape smartere arbeidsplasser med løsninger som gir varige resultater.
+    </p>
+  </div>
+</section>
+
+<!-- Team-seksjonen med slider -->
+<section class="team-section fade-section">
+  <div class="container">
+    <h2>Vårt Team</h2>
+    <div class="team-slider">
+      <!-- Totalt 7 team-medlemmer. CEO med data-index="0" skal vises først -->
+      <div class="team-member" data-index="0">
+        <img src="{{ url_for('static', filename='images/member0.jpg') }}" alt="CEO – Kari Nordmann">
+        <h3>Reda Zilali</h3>
+        <p></p>
+      </div>
+      <div class="team-member" data-index="1">
+        <img src="{{ url_for('static', filename='images/member1.jpg') }}" alt="Ola Hansen – Teknisk Leder">
+        <h3>Kambez Kargar</h3>
+        <p></p>
+      </div>
+      <div class="team-member" data-index="2">
+        <img src="{{ url_for('static', filename='images/member2.jpg') }}" alt="Eva Olsen – AI-Spesialist">
+        <h3>Yosuf Al-Ani</h3>
+        <p></p>
+      </div>
+      <div class="team-member" data-index="3">
+        <img src="{{ url_for('static', filename='images/member3.jpg') }}" alt="Erik Johansen – Produktutvikler">
+        <h3>Hobaib Raza</h3>
+        <p></p>
+      </div>
+      <div class="team-member" data-index="4">
+        <img src="{{ url_for('static', filename='images/member4.jpg') }}" alt="Jonas Nilsen – Utvikler">
+        <h3>Mike Saad</h3>
+        <p></p>
+      </div>
+      <div class="team-member" data-index="5">
+        <img src="{{ url_for('static', filename='images/member5.jpg') }}" alt="Marte Eng – Designansvarlig">
+        <h3>Mustafa Al-Ani</h3>
+        <p></p>
+      </div>
+      <div class="team-member" data-index="6">
+        <img src="{{ url_for('static', filename='images/member6.jpg') }}" alt="Felix Sørensen – Kundeansvarlig">
+        <h3>Ibrahim Al-Ani</h3>
+        <p></p>
+      </div>
+    </div>
+    <!-- Navigasjonsknapper plassert nærmere midten -->
+    <div class="slider-nav">
+      <button class="prev">&#8249;</button>
+      <button class="next">&#8250;</button>
+    </div>
+  </div>
+</section>
+{% endblock %}

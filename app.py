@@ -3,13 +3,13 @@ from flask_mail import Mail, Message
 
 app = Flask(__name__)
 
-# Konfigurer SMTP-innstillinger for Flask-Mail
-app.config["MAIL_SERVER"] = "smtp.example.com"         # For eksempel: smtp.gmail.com
-app.config["MAIL_PORT"] = 587                           # Port for TLS, endre hvis nødvendig
+# Konfigurer Flask-Mail (endre til dine opplysninger)
+app.config["MAIL_SERVER"] = "smtp.example.com"         # f.eks. smtp.gmail.com
+app.config["MAIL_PORT"] = 587                           # for TLS
 app.config["MAIL_USE_TLS"] = True
-app.config["MAIL_USERNAME"] = "your_username@example.com"   # Din e-post
-app.config["MAIL_PASSWORD"] = "your_password"               # Passord for din e-postkonto
-app.config["MAIL_DEFAULT_SENDER"] = "contact@skyonai.com"     # Sender-adressen
+app.config["MAIL_USERNAME"] = "your_username@example.com"
+app.config["MAIL_PASSWORD"] = "your_password"
+app.config["MAIL_DEFAULT_SENDER"] = "contact@skyonai.com"
 
 mail = Mail(app)
 
@@ -17,24 +17,25 @@ mail = Mail(app)
 def index():
     return render_template("index.html")
 
+@app.route("/priser")
+def priser():
+    return render_template("priser.html")
+
+@app.route("/om-oss")
+def om_oss():
+    return render_template("om_oss.html")
+
 @app.route("/send", methods=["POST"])
 def send():
-    # Hent data fra kontaktskjemaet (forvent JSON-data)
     data = request.get_json()
     sender_name = data.get("navn")
     sender_email = data.get("epost")
     message_content = data.get("melding")
-    
-    # Utform e-post-meldingen
+
     subject = "Kontaktmelding fra SkyonAI nettside"
-    body = (
-        f"Navn: {sender_name}\n"
-        f"E-post: {sender_email}\n\n"
-        f"Melding:\n{message_content}"
-    )
-    
+    body = f"Navn: {sender_name}\nE-post: {sender_email}\n\nMelding:\n{message_content}"
+
     msg = Message(subject, recipients=["contact@skyonai.com"], body=body)
-    
     try:
         mail.send(msg)
         return jsonify({"message": "Melding sendt."}), 200

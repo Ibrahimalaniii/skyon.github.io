@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{% block title %}SkyonAI{% endblock %}</title>
+  
+  <!-- CSS og JS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="navbar-section">
+    <nav class="navbar">
+      <div class="navbar-logo">
+        <a href="/">
+          <div class="logo-wrapper">
+            <span class="logo-text">
+              <!-- 'Sky -' -->
+              <span class="sky-part">Sky</span>
+              
+              <!-- Skyikonet -->
+              <span class="cloud">
+                <img src="{{ url_for('static', filename='images/cloud.png') }}" alt="Sky-ikon" class="cloud-img">
+              </span>
+              
+              <!-- '- n AI' -->
+              <span class="on-part">n AI</span>
+            </span>
+          </div>
+        </a>
+      </div>
+      
+      <!-- Meny-lenker -->
+      <div class="navbar-links">
+        <a href="/om-oss">Om oss</a>
+        <a href="/priser">Priser</a>
+        <a href="#kontakt">Kontakt</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Innhold -->
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 SkyonAI. Alle rettigheter forbeholdt.</p>
+  </footer>
+</body>
+</html>
