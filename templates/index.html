@@ -3,8 +3,16 @@
 {% block title %}SkyonAI – Fremtidens løsninger{% endblock %}
 
 {% block content %}
-<!-- Innhold -->
+<!-- HERO-SEKSJON -->
 <section class="hero-blue">
+  <video autoplay muted loop playsinline class="hero-video">
+    <source src="{{ url_for('static', filename='video/skyonai_wave_background.mp4') }}" type="video/mp4">
+  </video>
+  
+  
+  <!-- Animerte blå bølger i bakgrunnen -->
+  <div class="wave-bg"></div>
+
   <div class="hero-content">
     <h1 class="fade-in">Glem kø. Glem venting.<br><strong>Møt SkyonAI</strong></h1>
     <p class="fade-in delay-1">
@@ -26,7 +34,7 @@
   </div>
 </section>
 
-<!-- Informasjonsseksjon med horisontale bokser -->
+<!-- Informasjonsseksjon -->
 <section id="info-section" class="info-section fade-section">
   <div class="info-box">
     <h2>Hva vi gjør</h2>
@@ -51,7 +59,7 @@
   </div>
 </section>
 
-<!-- Kontakt oss-seksjon -->
+<!-- Kontaktseksjon -->
 <section id="kontakt" class="contact-section fade-section">
   <div class="container">
     <h2>Kontakt oss</h2>

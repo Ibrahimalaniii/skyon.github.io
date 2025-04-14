@@ -52,3 +52,10 @@ document.addEventListener("DOMContentLoaded", () => {
     updateSlider();
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const video = document.querySelector(".hero-video");
+  if (video) {
+    video.playbackRate = 0.1; // Spiller videoen saktere (50% hastighet)
+  }
+});
