@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SkyonAI</title>
-
+  <title>{% block title %}SkyonAI{% endblock %}</title>
+  
   <!-- CSS og JS -->
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   <script src="{{ url_for('static', filename='script.js') }}" defer></script>
@@ -31,24 +31,7 @@
 
   <!-- Innhold -->
   <main>
-    <section class="hero">
-      <h2 class="fade-in">Glem kø. Glem venting.<br><strong>Møt SkyonAI</strong></h2>
-      <p class="fade-in delay-1">
-        Din AI-assistent for bygg- og anleggsbransjen –<br> tilgjengelig 24/7.
-      </p>
-
-      <!-- Rullende ticker -->
-      <div class="ticker">
-        <div class="ticker-track">
-          <span>
-            🚧 Automatisert dokumentasjon &nbsp;|&nbsp;
-            🔧 AI-støtte for byggmestere &nbsp;|&nbsp;
-            📈 Effektiv prosjektstyring &nbsp;|&nbsp;
-            🤖 Alltid tilgjengelig
-          </span>
-        </div>
-      </div>
-    </section>
+    {% block content %}{% endblock %}
   </main>
 
   <!-- Footer -->
