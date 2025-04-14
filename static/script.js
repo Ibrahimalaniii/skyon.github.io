@@ -53,9 +53,3 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const video = document.querySelector(".hero-video");
-  if (video) {
-    video.playbackRate = 0.5; // Spiller videoen saktere (50% hastighet)
-  }
-});
