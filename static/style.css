@@ -513,7 +513,7 @@ footer {
    HERO-BLUE – BLÅ BAKGRUNN MED ANIMERT PILMØNSTER
 ––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 .hero-blue {
-  background: url("/static/images/Hero-Fallback.png") center center / cover no-repeat;
+  background-color: #2866a4; /* lys blågrå bakgrunn */
   position: relative;
   z-index: 1;
   min-height: 100vh;
@@ -525,6 +525,7 @@ footer {
   text-align: center;
   overflow: hidden;
 }
+
 
 
 
