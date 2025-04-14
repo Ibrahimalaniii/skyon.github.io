@@ -1,60 +1,67 @@
-<!DOCTYPE html>
-<html lang="no">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SkyonAI</title>
+{% extends "base.html" %}
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
+{% block title %}SkyonAI – Fremtidens løsninger{% endblock %}
 
-  <!-- Header -->
-  <header class="navbar-section">
-    <nav class="navbar">
-      <div class="navbar-logo">
-        <a href="/">
-          <img src="{{ url_for('static', filename='images/hvur.png') }}" alt="SkyonAI-logo" class="logo-img">
-        </a>
-      </div>
+{% block content %}
+<!-- Innhold -->
+<section class="hero-blue">
+  <div class="hero-content">
+    <h1 class="fade-in">Glem kø. Glem venting.<br><strong>Møt SkyonAI</strong></h1>
+    <p class="fade-in delay-1">
+      Din AI-assistent for bygg- og anleggsbransjen – tilgjengelig 24/7.
+    </p>
+    <a href="/priser" class="cta-button fade-in delay-2">Prøv gratis</a>
+  </div>
 
-      <div class="navbar-links">
-        <a href="/om-oss">Om oss</a>
-        <a href="/priser">Priser</a>
-        <a href="#kontakt">Kontakt</a>
-      </div>
-    </nav>
-  </header>
+  <!-- Rullende ticker -->
+  <div class="ticker">
+    <div class="ticker-track">
+      <span>
+        🚀 Lynrask AI-hjelp &nbsp;|&nbsp;
+        🔧 Skreddersydd for byggebransjen &nbsp;|&nbsp;
+        🤖 Alltid tilgjengelig &nbsp;|&nbsp;
+        📈 Øk effektiviteten i prosjektene dine
+      </span>
+    </div>
+  </div>
+</section>
 
-  <!-- Innhold -->
-  <main>
-    <section class="hero-blue">
-      <div class="hero-content">
-        <h1 class="fade-in">Glem kø. Glem venting.<br><strong>Møt SkyonAI</strong></h1>
-        <p class="fade-in delay-1">
-          Din AI-assistent for bygg- og anleggsbransjen – tilgjengelig 24/7.
-        </p>
-        <a href="/priser" class="cta-button fade-in delay-2">Prøv gratis</a>
-      </div>
+<!-- Informasjonsseksjon med horisontale bokser -->
+<section id="info-section" class="info-section fade-section">
+  <div class="info-box">
+    <h2>Hva vi gjør</h2>
+    <p>
+      Vi utvikler moderne chatbot-løsninger for bygg- og anleggsbransjen som automatiserer 
+      kundeservice og forbedrer arbeidsflyten.
+    </p>
+  </div>
+  <div class="info-box">
+    <h2>Hvorfor velge oss?</h2>
+    <p>
+      Vår teknologi kombinerer bransjespesifikk ekspertise med avansert AI, slik at du får 
+      effektive løsninger som øker produktiviteten.
+    </p>
+  </div>
+  <div class="info-box">
+    <h2>Hvordan det funker</h2>
+    <p>
+      Plattformen vår integreres sømløst med dine systemer og håndterer kundehenvendelser 
+      automatisk – raskt, presist og til enhver tid.
+    </p>
+  </div>
+</section>
 
-      <!-- Rullende ticker -->
-      <div class="ticker">
-        <div class="ticker-track">
-          <span>
-            🚀 Lynrask AI-hjelp &nbsp;|&nbsp;
-            🔧 Skreddersydd for byggebransjen &nbsp;|&nbsp;
-            🤖 Alltid tilgjengelig &nbsp;|&nbsp;
-            📈 Øk effektiviteten i prosjektene dine
-          </span>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 SkyonAI. Alle rettigheter forbeholdt.</p>
-  </footer>
-</body>
-</html>
+<!-- Kontakt oss-seksjon -->
+<section id="kontakt" class="contact-section fade-section">
+  <div class="container">
+    <h2>Kontakt oss</h2>
+    <form id="kontaktSkjema">
+      <input type="text" name="navn" placeholder="Navn" required>
+      <input type="email" name="epost" placeholder="E-post" required>
+      <textarea name="melding" placeholder="Din melding" rows="5" required></textarea>
+      <button type="submit">Send melding</button>
+    </form>
+    <p id="bekreftelse"></p>
+  </div>
+</section>
+{% endblock %}
