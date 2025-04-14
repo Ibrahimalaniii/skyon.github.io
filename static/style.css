@@ -81,10 +81,14 @@ body {
   align-items: center;
 }
 
-/* Tekst før skyikonet */
-.sky-part {
-  margin-right: 10px;
+.logo-img {
+  height: 200px;
+  width: auto;
+  object-fit: contain;
 }
+
+
+
 
 /* Skyikonet: bruker et bilde fra /static/images/cloud.png */
 .cloud {
@@ -93,8 +97,8 @@ body {
 }
 
 .cloud-img {
-  width: 30px;
-  height: 30px;
+  width: 100px;
+  height: 110px;
   object-fit: contain;
   margin-right: 10px;
 }
