@@ -91,9 +91,6 @@ body {
   object-fit: contain;
 }
 
-
-
-
 /* Skyikonet: bruker et bilde fra /static/images/cloud.png */
 .cloud {
   display: inline-flex;
@@ -497,6 +494,7 @@ footer {
   font-size: 16px;
   font-weight: 500;
   color: #131B3C;
+  padding: 0 20px;
 }
 
 
@@ -712,6 +710,11 @@ footer {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
+/* Når aktivert via JS */
+.mobile-menu.show {
+  display: flex;
+}
+
 .mobile-menu a {
   color: #131B3C;
   text-decoration: none;
@@ -733,6 +736,14 @@ footer {
 
 /* Vises kun på mobil */
 @media (max-width: 768px) {
+  .navbar {
+    padding-left: 0;
+  }
+
+  .navbar-logo {
+    margin-left: 0;
+  }
+
   .navbar-links {
     display: none;
   }
