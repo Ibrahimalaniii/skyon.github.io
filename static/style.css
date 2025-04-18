@@ -42,19 +42,23 @@ body {
 
 .navbar {
   width: 100%;
-  padding: 0 50px;
+  padding: 0 20px; /* mindre sidemargin */
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.navbar-logo a {
-  text-decoration: none;
-  color: inherit;
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  margin-left: 0;     /* Flytter logoen litt mot venstre */
+  position: relative;
+  top: 8px;              /* Flytter logoen litt nedover */
 }
 
 .navbar-links a {
-  margin-left: 20px;
+  margin-left: auto;
+  padding-right: 25px;
   text-decoration: none;
   color: #fff;
   font-weight: 400;
@@ -526,11 +530,6 @@ footer {
   overflow: hidden;
 }
 
-
-
-
-
-
 .hero-content {
   position: relative;
   z-index: 2;
@@ -554,9 +553,9 @@ footer {
   position: absolute;
   bottom: 0;
   left: 0;
-  height: 120px;
+  height: 300px;
   width: 100%;
-  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, #ffffff 100%);
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, #f7f7f7 100%);
   z-index: 2;
   pointer-events: none;
 }
@@ -685,3 +684,64 @@ footer {
   color: #0f1c40;
 }
 
+/* ––––––––––––––––––––––––––––––––––––––––––––––––––––
+   MOBILMENY – POPUP VED HAMBURGER
+––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: #ffffff;
+  width: 100%;
+  height: 100vh;
+  padding: 40px 20px;
+  z-index: 1050;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.mobile-menu a {
+  color: #131B3C;
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: 600;
+  margin: 15px 0;
+  text-align: left;
+}
+
+.close-menu {
+  background: none;
+  border: none;
+  font-size: 32px;
+  color: #131B3C;
+  align-self: flex-end;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+/* Vises kun på mobil */
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .mobile-menu.show {
+    display: flex;
+  }
+}

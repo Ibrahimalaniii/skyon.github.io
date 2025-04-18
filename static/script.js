@@ -51,6 +51,43 @@ document.addEventListener("DOMContentLoaded", () => {
     centerIndex = (centerIndex + 1) % total;
     updateSlider();
   });
+
+  // ‣ SCROLL EFFECT PÅ HERO-SECTION
+  const hero = document.querySelector(".hero-blue");
+  if (hero) {
+    window.addEventListener("scroll", () => {
+      const scrollY = window.scrollY;
+      const heroHeight = hero.offsetHeight;
+
+      if (scrollY > heroHeight - 100) {
+        document.body.classList.add("scrolled");
+      } else {
+        document.body.classList.remove("scrolled");
+      }
+    });
+  }
+
+  // ✅ ‣ MOBILMENY-LOGIKK
+  const menuToggle = document.querySelector(".menu-toggle");
+  const closeMenu = document.querySelector(".close-menu");
+  const mobileMenu = document.querySelector(".mobile-menu");
+
+  if (menuToggle && closeMenu && mobileMenu) {
+    menuToggle.addEventListener("click", () => {
+      mobileMenu.classList.add("show");
+    });
+
+    closeMenu.addEventListener("click", () => {
+      mobileMenu.classList.remove("show");
+    });
+
+    // Lukk menyen når en menylenke klikkes
+    mobileMenu.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.remove("show");
+      });
+    });
+  }
 });
 
 document.addEventListener("DOMContentLoaded", () => {
